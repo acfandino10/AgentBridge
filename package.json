@@ -1,0 +1,79 @@
+{
+  "name": "agent-bridge",
+  "version": "0.1.0",
+  "description": "TypeScript framework for feature-based AI web apps, with agents, workflows, and explicit render modes.",
+  "license": "Apache-2.0",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.mjs",
+      "require": "./dist/react.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "agent-bridge": "./dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx examples/hello.ts",
+    "cli": "tsx src/cli/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit --pretty false",
+    "prepublishOnly": "npm run lint && npm run typecheck && npm test && npm run build"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "llm",
+    "typescript",
+    "framework",
+    "react"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.2.15",
+    "eslint": "^9.39.5",
+    "globals": "^17.14.0",
+    "react": "^19.2.6",
+    "tsup": "^8.5.1",
+    "tsx": "^4.20.3",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.72.2",
+    "vitest": "^5.1.0"
+  }
+}
